@@ -8,7 +8,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   const eta = window.location.href.toLowerCase().indexOf("eta") > -1;
   const appeal = window.location.href.toLowerCase().indexOf("appeal") > -1;
   $$result.css.add(css);
-  return `${$$result.head += `<!-- HEAD_svelte-1n4lkaz_START -->${$$result.title = `<title>ETA Skipper</title>`, ""}<script type="text/javascript" id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js" data-svelte-h="svelte-1tkxu23"><\/script><script src="https://www.youtube.com/player_api" data-svelte-h="svelte-u7svys"><\/script><!-- HEAD_svelte-1n4lkaz_END -->`, ""} <section> <div id="player" class="svelte-7fzc0f"></div>  ${`<div class="container svelte-7fzc0f"><button class="btn svelte-7fzc0f"><span class="svelte-7fzc0f">${eta ? `Skip The ETA` : `${appeal ? `Appeal here!` : `Click Me!`}`}</span></button></div>`} </section>`;
+  return `${$$result.head += `<!-- HEAD_svelte-1rh7vm9_START --><script type="text/javascript" id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js" data-svelte-h="svelte-1tkxu23"><\/script><script src="https://www.youtube.com/player_api" data-svelte-h="svelte-u7svys"><\/script><!-- HEAD_svelte-1rh7vm9_END -->`, ""} <section> <div id="player" class="svelte-7fzc0f"></div>  ${`<div class="container svelte-7fzc0f"><button class="btn svelte-7fzc0f"><span class="svelte-7fzc0f">${eta ? `Skip The ETA` : `${appeal ? `Appeal here!` : `Click Me!`}`}</span></button></div>`} </section>`;
 });
 export {
   Page as default
