@@ -5,6 +5,8 @@
 	let divplayer: HTMLElement;
 	let visible = false;
 	let aaaa: string;
+	const eta = window.location.href.toLowerCase().indexOf("eta") > -1;
+	const appeal = window.location.href.toLowerCase().indexOf("appeal") > -1;
 	const onPlayerReady = (event: Event) => {
 		if (event.target === null) {
 			return;
@@ -58,7 +60,13 @@
 		</div>
 	{:else}
 		<div class="container">
-			<button class="btn" on:click={handle}><span>Skip The ETA</span></button>
+			<button class="btn" on:click={handle}><span>
+				{#if eta}Skip The ETA {:else if appeal}
+					Appeal here!
+				{:else}
+					Click Me!
+				{/if}
+				</span></button>
 		</div>
 	{/if}
 </section>
