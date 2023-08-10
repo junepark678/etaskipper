@@ -3,6 +3,8 @@
 
 	let player: any;
 	let divplayer: HTMLElement;
+	let visible = false;
+	let aaaa: string;
 	const onPlayerReady = (event: Event) => {
 		if (event.target === null) {
 			return;
@@ -10,16 +12,29 @@
 		(event.target as any).playVideo();
 	};
 	const handle = () => {
-		divplayer.style.display = "inherit";
+		player = new (window['YT' as any] as any).Player('player', {
+			height: 320,
+			width: 400,
+			videoId: 'xvFZjo5PgG0',
+			events: {
+				onReady: onPlayerReady
+			},
+			playerVars: {
+				autoplay: 1,
+				controls: 0,
+				showinfo: 1,
+				enablejsapi: 1,
+				loop: 1,
+				autohide: 1,
+				playsinline: 1
+			}
+		});
+		visible = true;
 		player.playVideo();
 	};
 
 	onMount(async () => {
-		player = new (window['YT' as any] as any).Player('player', {
-			height: 320,
-			width: 400,
-			videoId: 'xvFZjo5PgG0'
-		});
+		console.log(aaaa);
 	});
 </script>
 
@@ -34,10 +49,18 @@
 </svelte:head>
 
 <section>
-	<div id="player" bind:this={divplayer} />
-	<div class="container">
-		<button class="btn" on:click={handle}><span>Skip The ETA</span></button>
-	</div>
+	<!-- <div bind:innerHTML={aaaa} contenteditable="true"> -->
+	<div id="player" />
+	<!-- </div> -->
+	{#if visible}
+		<div id="player2" bind:this={divplayer} contenteditable="true">
+			{aaaa}
+		</div>
+	{:else}
+		<div class="container">
+			<button class="btn" on:click={handle}><span>Skip The ETA</span></button>
+		</div>
+	{/if}
 </section>
 
 <style>
@@ -45,7 +68,6 @@
 		pointer-events: none;
 		position: absolute;
 		margin: 0 auto;
-		display: none;
 	}
 	.container {
 		display: flex; /* establish flex container */
